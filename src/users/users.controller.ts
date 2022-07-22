@@ -1,11 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { User } from './shared/user';
-import { UserService } from './shared/user.service';
+import { UsersService } from './shared/user.service';
 
 @Controller('users')
 export class UsersController {
 
-    constructor(private userService: UserService){    }
+    constructor(private userService: UsersService){    }
 
     @Get()
     async getAll(): Promise<User[]>{
