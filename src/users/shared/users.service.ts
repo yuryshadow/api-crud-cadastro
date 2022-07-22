@@ -4,7 +4,7 @@ import { User } from './user';
 @Injectable()
 export class UserService {
     users: User[] = [
-        {id: 1, nome:"Yuri", sobrenome:"Rodrigues", email:"yuri@teste.com", endereco:"rua dos testes", senha:"123"},
+        {id: 1, nome:"Yuri", sobrenome:"Rodrigues", email:"yuri", endereco:"rua dos testes", senha:"1234"},
         {id: 2, nome:"Yuri2", sobrenome:"Rodrigues2", email:"yuri2@teste.com", endereco:"rua dos testes", senha:"123"},
         {id: 3, nome:"Yuri3", sobrenome:"Rodrigues3", email:"yuri3@teste.com", endereco:"rua dos testes", senha:"123"},
     ];
@@ -17,6 +17,10 @@ export class UserService {
         const user = this.users.find((value) => value.id == id);
         return user;
     }   
+
+    async findOne(email: string): Promise<User | undefined> {
+        return this.users.find(user => user.email === email);
+    }
 
     create(user: User){
         let lastId = 0;
