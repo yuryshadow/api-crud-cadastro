@@ -24,8 +24,8 @@ export class UsersController {
     }
 
     @Put(':id')
-    async update(@Param('id') id: number, @Body() body: any){
-        return await this.userService.update({id}, body);
+    update(@Param('id') id: number, @Body() body: any){
+        return this.userService.update({where: {id}}, body);
     }
 
     @Delete(':id')
